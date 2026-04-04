@@ -1,0 +1,63 @@
+body {
+    font-family: 'Poppins', 'Kantumruy Pro', sans-serif;
+    background-color: #f8f9fa;
+}
+
+.hero-img {
+    height: 500px;
+    object-fit: cover;
+    filter: brightness(0.7);
+}
+
+.nav-link {
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    color: #0d6efd !important;
+}
+
+/* Product Card Styling */
+.product-card {
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
+}
+
+.card-img-container {
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    overflow: hidden;
+}
+
+.card-img-container img {
+    height: 180px;
+    object-fit: contain;
+    transition: 0.5s;
+}
+
+.product-card:hover img {
+    transform: scale(1.1);
+}
+
+/* Sidebar Cart Items */
+.cart-item-img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    border-radius: 8px;
+    background: #f1f1f1;
+}
+
+#cart-item-list {
+    max-height: calc(100vh - 350px);
+    overflow-y: auto;
+}
