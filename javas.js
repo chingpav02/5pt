@@ -7,7 +7,6 @@ const cartFooter = document.getElementById('cart-footer');
 const cartCount = document.getElementById('cart-count');
 const searchInput = document.getElementById('input-search');
 
-// ១. ទាញទិន្នន័យពី API
 fetch('https://api.escuelajs.co/api/v1/products')
     .then(res => res.json())
     .then(data => {
@@ -16,7 +15,7 @@ fetch('https://api.escuelajs.co/api/v1/products')
     })
     .catch(err => console.error("Error:", err));
 
-// ================= បង្ហាញផលិតផល =================
+
 function displayProducts(data) {
     showProduct.innerHTML = "";
     data.forEach(p => {
@@ -44,14 +43,14 @@ function displayProducts(data) {
     });
 }
 
-// ================= ស្វែងរក =================
-searchInput.addEventListener("keyup", () => {
-    const keyword = searchInput.value.toLowerCase();
-    const filtered = products.filter(p => p.title.toLowerCase().includes(keyword));
-    displayProducts(filtered);
-});
 
-// ================= បញ្ចូលក្នុងកន្ត្រក =================
+// searchInput.addEventListener("keyup", () => {
+//     const keyword = searchInput.value.toLowerCase();
+//     const filtered = products.filter(p => p.title.toLowerCase().includes(keyword));
+//     displayProducts(filtered);
+// });
+
+
 function addToCart(id) {
     const existing = cart.find(item => item.id === id);
     if (existing) {
@@ -62,14 +61,11 @@ function addToCart(id) {
     }
     updateCartUI();
     
-    // លោតស្អាតៗ
     Swal.fire({
         toast: true, position: 'top-end', icon: 'success',
         title: 'បានបញ្ចូលទៅក្នុងកន្ត្រក!', showConfirmButton: false, timer: 1500
     });
 }
-
-// ================= UPDATE UI កន្ត្រក =================
 function updateCartUI() {
     cartItemList.innerHTML = "";
     let total = 0;
